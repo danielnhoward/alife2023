@@ -27,6 +27,10 @@ end
 function runGrid(tSteps::Int64,grid::Grid,temperature)
 
     for t in 1:tSteps
+
+		if t%round(Int64,tSteps/100)==0
+			print("$(round(Int64,100*t/tSteps))% ")
+		end
         
         for x in 1:grid.nX
             for y in 1:grid.nY
@@ -133,14 +137,14 @@ stateL=25
 lam=1.0
 
 
-temperature=0.3
+temperature=0.15
 
 tEpoch=25000
 
 
 edges=zeros(Float64,stateL+1)
 
-for _ in 1:10
+for _ in 1:5
     global edges
     grid=makeGrid([nX,nX],stateL,lam)
     grid=runGrid(tEpoch,grid,temperature)

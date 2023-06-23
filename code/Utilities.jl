@@ -147,6 +147,30 @@ function getNeighbours(size::Vector{Int64},r)
 
     neighbours
 end
+    
+function getNeighboursIncludingCorners(size::Vector{Int64},r)
+    
+    neighbours=Vector{Vector{Int64}}()
+    
+    x,y=get(size,r[1]+1,r[2])
+    push!(neighbours,[x,y])
+    x,y=get(size,r[1]+1,r[2]+1)
+    push!(neighbours,[x,y])
+    x,y=get(size,r[1],r[2]+1)
+    push!(neighbours,[x,y])
+    x,y=get(size,r[1]-1,r[2]+1)
+    push!(neighbours,[x,y]) 
+    x,y=get(size,r[1]-1,r[2])
+    push!(neighbours,[x,y]) 
+    x,y=get(size,r[1]-1,r[2]-1)
+    push!(neighbours,[x,y])
+    x,y=get(size,r[1],r[2]-1)
+    push!(neighbours,[x,y]) 
+    x,y=get(size,r[1]+1,r[2]-1)
+    push!(neighbours,[x,y]) 
+
+    neighbours
+end
 
 function makeGrid(gridSize::GridSize,stateSize::Int64)
     makeGrid([gridSize.nX,gridSize.nY],stateSize)

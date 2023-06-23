@@ -1,0 +1,27 @@
+#!/bin/sh
+
+# This file reads both the csv files and combines them into one
+
+ORDINARY_CSV_FILE="figure_edge_hist/ord_l25.csv"
+PREFERENCE_CSV_FILE="figure_edge_hist/evo_l25.csv"
+BOTH_CSV_FILE="figure_edge_hist/l25.csv"
+
+cd "$( dirname "${BASH_SOURCE[0]}" )"
+
+function makeCsvFromCsv {
+	awkComamnd='{for(i=2;i<=NF-1;i++){split($i,a,",");n=a[1]'$2'0.25;printf "%s,%s,'$3'\n",n,a[2]}}'
+	data=$(cat $1 | tr "\n" ";" | awk -F ";" "$awkComamnd")
+	echo "$data"
+}
+
+ORDINARY_DATA=$(cat "$ORDINARY_CSV_FILE")
+PREFERENCE_DATA=$(cat "$PREFERENCE_CSV_FILE")
+
+FILE_DATA="difference,edges,l"
+FILE_DATA+=$'\n'
+FILE_DATA+=$(makeCsvFromCsv "$ORDINARY_CSV_FILE" "+" "1")
+FILE_DATA+=$'\n'
+FILE_DATA+=$(makeCsvFromCsv "$PREFERENCE_CSV_FILE" "-" "8")
+
+echo "$FILE_DATA" > "$BOTH_CSV_FILE"
+
