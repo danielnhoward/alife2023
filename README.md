@@ -1,4 +1,4 @@
-*This is part of my work from work experience with Conor Houghton at the University of Bristol. The majority of my work is in the [findings](https://github.com/danielnhoward/alife2023/blob/main/code/findings) directory, along with some in [EvoIsingStructure.jl](https://github.com/danielnhoward/alife2023/blob/main/code/EvoIsingStructure.jl) to add more parameters to the model*
+*This is part of my work from work experience with Conor Houghton at the University of Bristol. My findings can be found within the [findings](https://github.com/danielnhoward/alife2023/blob/main/code/findings) directory. All the changes and additions I made to add new paraemters to the model can be found within the commit history [here](https://github.com/danielnhoward/alife2023/commit/192909ed8979ed8ae71f1ddd7d4f524acc37d487)*
 
 ---
 
