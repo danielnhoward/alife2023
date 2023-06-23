@@ -1,3 +1,7 @@
+*This is part of my work from work experience with Conor Houghton at the University of Bristol. The majority of my work is in the [findings](https://github.com/danielnhoward/alife2023/blob/main/code/findings) directory, along with some in [EvoIsingStructure.jl](https://github.com/danielnhoward/alife2023/blob/main/code/EvoIsingStructure.jl) to add more parameters to the model*
+
+---
+
 # alife2023
 
 see https://arxiv.org/abs/2305.13916
